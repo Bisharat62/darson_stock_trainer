@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:darson_stock_trainer/screens/mainpage.dart';
 import 'package:darson_stock_trainer/userAuthentication/forgotpass.dart';
 import 'package:darson_stock_trainer/widgets/button.dart';
 import 'package:darson_stock_trainer/widgets/spacer.dart';
@@ -111,7 +112,9 @@ class _LoginState extends State<Login> {
             Button(
               text: "Sign in",
               ontap: () {
-                checking();
+                // checking();
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => MainPage()));
               },
               // loader: load,
               width: 1,

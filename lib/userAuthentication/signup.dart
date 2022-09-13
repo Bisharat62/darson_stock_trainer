@@ -273,7 +273,7 @@ class _SignupState extends State<Signup> {
           return StatefulBuilder(
             builder: (BuildContext context, setState) {
               return Container(
-                height: MediaQuery.of(context).size.height * 0.45,
+                height: MediaQuery.of(context).size.height * 0.65,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
 
@@ -311,6 +311,7 @@ class _SignupState extends State<Signup> {
                           ),
                         ),
                       ),
+                      vertical(25),
                       SizedBox(
                         child: ListView.builder(
                             controller: ScrollController(),
@@ -319,22 +320,31 @@ class _SignupState extends State<Signup> {
                             itemBuilder: (BuildContext, int index) {
                               return Padding(
                                 padding: const EdgeInsets.all(15.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    this.setState(() {
-                                      _institute.text =
-                                          univeristy[index].toString();
-                                    });
-                                    Navigator.pop(context);
-                                  },
-                                  child: Center(
-                                    child: Text(
-                                      univeristy[index].toString(),
-                                      textAlign: TextAlign.center,
-                                      style:
-                                          Theme.of(context).textTheme.bodyText1,
+                                child: Column(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        this.setState(() {
+                                          _institute.text =
+                                              univeristy[index].toString();
+                                        });
+                                        Navigator.pop(context);
+                                      },
+                                      child: Center(
+                                        child: Text(
+                                          univeristy[index].toString(),
+                                          textAlign: TextAlign.center,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText1,
+                                        ),
+                                      ),
                                     ),
-                                  ),
+                                    Divider(
+                                      thickness: 2,
+                                      color: Theme.of(context).primaryColorDark,
+                                    )
+                                  ],
                                 ),
                               );
                             }),
