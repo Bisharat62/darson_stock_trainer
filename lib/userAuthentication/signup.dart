@@ -1,6 +1,4 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'dart:math';
+// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_types_as_parameter_names
 
 import 'package:darson_stock_trainer/widgets/button.dart';
 import 'package:darson_stock_trainer/widgets/spacer.dart';
@@ -12,7 +10,7 @@ import 'utils/ui_helpers.dart';
 import 'utils/university_list.dart';
 
 class Signup extends StatefulWidget {
-  Signup({Key? key}) : super(key: key);
+  const Signup({Key? key}) : super(key: key);
 
   @override
   State<Signup> createState() => _SignupState();
@@ -32,7 +30,6 @@ class _SignupState extends State<Signup> {
   bool mobile = false;
   bool city = false;
   bool institute = false;
-  final bool _isChecked = false;
   bool readonly = true;
   bool first = false;
   bool second = false;
@@ -40,7 +37,6 @@ class _SignupState extends State<Signup> {
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.height);
     // SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
     return Scaffold(
         body: SingleChildScrollView(
@@ -58,7 +54,7 @@ class _SignupState extends State<Signup> {
           Text("Please signup for your account",
               style: Theme.of(context).textTheme.bodyText1),
           vertical(45),
-          TextArea(
+          textArea(
             context,
             Icon(
               Icons.person,
@@ -74,7 +70,7 @@ class _SignupState extends State<Signup> {
                 )
               : SizedBox(),
           vertical(15),
-          TextArea(
+          textArea(
             context,
             Icon(
               Icons.email,
@@ -90,7 +86,7 @@ class _SignupState extends State<Signup> {
                 )
               : SizedBox(),
           vertical(15),
-          TextArea(
+          textArea(
             context,
             Icon(
               Icons.email,
@@ -100,7 +96,7 @@ class _SignupState extends State<Signup> {
             1,
           ),
           vertical(15),
-          TextArea(
+          textArea(
             context,
             Icon(
               Icons.phone,
@@ -116,7 +112,7 @@ class _SignupState extends State<Signup> {
                 )
               : SizedBox(),
           vertical(15),
-          TextArea(
+          textArea(
             context,
             Icon(
               Icons.location_city,
@@ -317,7 +313,7 @@ class _SignupState extends State<Signup> {
                             controller: ScrollController(),
                             shrinkWrap: true,
                             itemCount: univeristy.length,
-                            itemBuilder: (BuildContext, int index) {
+                            itemBuilder: (BuildContext context, int index) {
                               return Padding(
                                 padding: const EdgeInsets.all(15.0),
                                 child: Column(
@@ -359,7 +355,7 @@ class _SignupState extends State<Signup> {
         });
   }
 
-  Widget TextArea(
+  Widget textArea(
     context,
     Icon icon,
     TextEditingController controller,
@@ -396,7 +392,7 @@ class _SignupState extends State<Signup> {
   }
 
   checking() {
-    print(_firstname.text);
+    // print(_firstname.text);
     if (_firstname.text.isEmpty) {
       setState(() {
         name = true;

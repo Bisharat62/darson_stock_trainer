@@ -8,19 +8,18 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'newpass.dart';
 
 class ForgotPassPin extends StatefulWidget {
-  ForgotPassPin({Key? key}) : super(key: key);
+  const ForgotPassPin({Key? key}) : super(key: key);
 
   @override
   State<ForgotPassPin> createState() => _ForgotPassPinState();
 }
 
 class _ForgotPassPinState extends State<ForgotPassPin> {
-  TextEditingController _pin = TextEditingController();
+  final TextEditingController _pin = TextEditingController();
 
   bool hasError = false;
   String currentText = "";
   final formKey = GlobalKey<FormState>();
-  bool _isChecked = false;
   int id = 1;
   @override
   Widget build(BuildContext context) {
@@ -85,7 +84,7 @@ class _ForgotPassPinState extends State<ForgotPassPin> {
                     ],
                     onCompleted: (v) {
                       debugPrint("Completed");
-                      print(_pin.text);
+                      // print(_pin.text);
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => NewPass()));
                     },
@@ -97,7 +96,7 @@ class _ForgotPassPinState extends State<ForgotPassPin> {
                       setState(() {
                         currentText = value;
                       });
-                      print(currentText);
+                      // print(currentText);
                     },
                     beforeTextPaste: (text) {
                       debugPrint("Allowing to paste $text");

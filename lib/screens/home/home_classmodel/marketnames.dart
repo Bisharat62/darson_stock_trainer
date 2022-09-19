@@ -1,43 +1,110 @@
 class Marketnames {
+  String? type;
   String? title;
   String? subtitle;
-  String? value;
-  Marketnames({this.title, this.subtitle, this.value});
+  String? volume;
+  double? lastprice;
+  double? changeinprice;
+  List<double>? closeprices;
+  double? bidvol;
+  double? bid;
+  double? offer;
+  double? offervol;
+  Marketnames({
+    this.title,
+    this.subtitle,
+    this.type,
+    this.volume,
+    this.lastprice,
+    this.changeinprice,
+    this.closeprices,
+    this.bidvol,
+    this.bid,
+    this.offer,
+    this.offervol,
+  });
   @override
   String toString() {
-    return ('title  : $title , subtitle : $subtitle , Value : $value');
+    return ('title  : $title , subtitle : $subtitle , Value : ');
   }
 }
 
-List<Marketnames> market_list = [
+List<Marketnames> marketlist = [
   Marketnames(
-    title: 'REG',
-    subtitle: 'PSO',
-    value: '168.30',
-  ),
+      title: 'PSO',
+      subtitle: 'Pak State Oil ltd',
+      type: 'REG',
+      volume: '3.58m(1.58%)',
+      lastprice: 168,
+      changeinprice: 5.2,
+      closeprices: [160.58, 170.48],
+      bidvol: 500,
+      bid: 168.2,
+      offer: 168.47,
+      offervol: 33500),
   Marketnames(
-    title: 'REG',
+    title: 'HASCOL',
     subtitle: 'HASCOL',
-    value: '-16.5',
+    type: 'REG',
+    volume: '3.58m(1.58%)',
+    lastprice: 6.47,
+    changeinprice: -0.9,
+    closeprices: [5.58, 7.48],
+    bidvol: 500,
+    bid: 6.46,
+    offer: 6.47,
+    offervol: 33500,
   ),
   Marketnames(
-    title: 'REG',
+    title: 'GGL',
     subtitle: 'GGL',
-    value: '-22.54',
+    type: 'REG',
+    volume: '3.58m(1.58%)',
+    lastprice: 22.54,
+    changeinprice: -10.9,
+    closeprices: [5.58, 7.48],
+    bidvol: 500,
+    bid: 6.46,
+    offer: 6.47,
+    offervol: 33500,
   ),
   Marketnames(
-    title: 'REG',
-    subtitle: 'PAEL',
-    value: '15.2',
+    title: 'PAEL',
+    subtitle: 'PAk Elektronics',
+    type: 'REG',
+    volume: '3.58m(1.58%)',
+    lastprice: 15.2,
+    changeinprice: 2.0,
+    closeprices: [15.58, 17.48],
+    bidvol: 500,
+    bid: 6.46,
+    offer: 6.47,
+    offervol: 33500,
   ),
   Marketnames(
-    title: 'REG',
-    subtitle: 'SUGAR',
-    value: '65.00',
+    title: 'SUGAR',
+    subtitle: 'SUGAR ltd',
+    type: 'REG',
+    volume: '3.58m(1.58%)',
+    lastprice: 75,
+    changeinprice: 1.02,
+    closeprices: [75.58, 77.48],
+    bidvol: 500,
+    bid: 76.46,
+    offer: 77.47,
+    offervol: 33500,
   ),
   Marketnames(
-    title: 'REG',
+    title: 'MCB',
     subtitle: 'MCB',
-    value: '13.60',
+    type: 'REG',
+    volume: '3.58m(1.58%)',
+    lastprice: 13,
+    changeinprice: 01.9,
+    closeprices: [15.58, 15.48],
+    bidvol: 500,
+    bid: 15.46,
+    offer: 15.47,
+    offervol: 33500,
   ),
 ];

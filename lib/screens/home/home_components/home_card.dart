@@ -8,39 +8,39 @@ Widget homecard(dynamic data, context) {
     padding: const EdgeInsets.only(bottom: 15),
     child: Container(
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       height: 50,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
               colors: [Color(0xff7C7C7C), Color(0xff3C3C3C)],
               end: Alignment(0, -1),
               begin: Alignment(0, -0.3))),
       child: Row(
         children: [
           Text(
-            data.title.toString(),
+            data.type.toString(),
             style: text1,
           ),
           horizental(20),
           Text(
-            data.subtitle.toString(),
+            data.title.toString(),
             style: text1,
           ),
-          Spacer(),
-          (data.value.toString().contains('-'))
+          const Spacer(),
+          (data.changeinprice < 0)
               ? Image.asset('assets/images/icons/arrow_down.png')
               : Image.asset('assets/images/icons/arrow_up.png'),
           SizedBox(
             width: 100,
             child: Center(
               child: Text(
-                data.value.toString(),
+                data.lastprice.toString(),
                 style: text1,
               ),
             ),
           ),
-          Icon(
+          const Icon(
             Icons.close_sharp,
             color: Colors.red,
           )

@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 
-class Button extends StatelessWidget {
+class WatchesButton extends StatelessWidget {
   double width;
   VoidCallback ontap;
   String text;
-  Button(
+  WatchesButton(
       {Key? key, required this.width, required this.ontap, required this.text})
       : super(key: key);
 
@@ -15,16 +15,21 @@ class Button extends StatelessWidget {
     return InkWell(
       onTap: ontap,
       child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         height: 40,
         width: MediaQuery.of(context).size.width * width,
         decoration: BoxDecoration(
             color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(10)),
-        child: Center(
-          child: Text(
-            text,
-            style: Theme.of(context).textTheme.button,
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              text,
+              style: Theme.of(context).textTheme.button,
+            ),
+            Image.asset('assets/images/icons/arrow_forward.png')
+          ],
         ),
       ),
     );

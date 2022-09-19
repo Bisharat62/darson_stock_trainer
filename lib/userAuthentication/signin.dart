@@ -10,7 +10,7 @@ import 'signup.dart';
 import 'utils/ui_helpers.dart';
 
 class Login extends StatefulWidget {
-  Login({Key? key}) : super(key: key);
+  const Login({Key? key}) : super(key: key);
 
   @override
   State<Login> createState() => _LoginState();
@@ -45,7 +45,7 @@ class _LoginState extends State<Login> {
             Text("Please signin to your Account",
                 style: Theme.of(context).textTheme.bodyText1),
             vertical(65),
-            TextArea(
+            textArea(
               context,
               "Email",
               Icon(
@@ -61,7 +61,7 @@ class _LoginState extends State<Login> {
                   )
                 : SizedBox(),
             vertical(15),
-            TextArea(
+            textArea(
               context,
               "Password",
               Icon(
@@ -130,7 +130,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Widget TextArea(
+  Widget textArea(
     context,
     String title,
     Icon icon,
@@ -166,7 +166,7 @@ class _LoginState extends State<Login> {
                         setState(() {
                           showpass = !showpass;
                         });
-                        print(showpass);
+                        // print(showpass);
                       },
                       child: Icon(
                         (showpass)

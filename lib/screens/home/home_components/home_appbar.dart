@@ -1,11 +1,17 @@
+import 'package:darson_stock_trainer/provider/links_provider.dart';
+import 'package:darson_stock_trainer/screens/home/home.dart';
+import 'package:darson_stock_trainer/screens/home/settings.dart';
 import 'package:darson_stock_trainer/screens/searchscreen.dart';
+import 'package:darson_stock_trainer/widgets/backicon.dart';
 import 'package:darson_stock_trainer/widgets/spacer.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 TextStyle whitetext = const TextStyle(
-    fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600);
+    fontSize: 14, color: Colors.white, fontWeight: FontWeight.w600);
 
 Widget homeappbar(context) {
+  final widget = Provider.of<Link>(context, listen: true);
   String value = '-132.08';
   return SizedBox(
     width: MediaQuery.of(context).size.width,
@@ -15,7 +21,7 @@ Widget homeappbar(context) {
         Row(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
               decoration: BoxDecoration(
                   color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.circular(15)),
@@ -32,7 +38,7 @@ Widget homeappbar(context) {
               '42,328.00',
               style: whitetext,
             ),
-            Spacer(),
+            const Spacer(),
             (value.contains('-'))
                 ? Image.asset('assets/images/icons/arrow_down.png')
                 : Image.asset('assets/images/icons/arrow_up.png'),
@@ -41,9 +47,11 @@ Widget homeappbar(context) {
               value,
               style: whitetext,
             ),
-            Spacer(),
+            const Spacer(),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  widget.changewidget(const Settings());
+                },
                 icon: Icon(
                   Icons.settings,
                   color: Theme.of(context).primaryColor,
@@ -56,7 +64,7 @@ Widget homeappbar(context) {
                 text: 'Vol : ',
                 style: Theme.of(context).textTheme.bodyText1,
                 children: [TextSpan(text: ' 137.68m', style: whitetext)])),
-            Spacer(),
+            const Spacer(),
             Text.rich(TextSpan(
                 text: 'STATUS : ',
                 style: Theme.of(context).textTheme.bodyText2,
@@ -70,6 +78,7 @@ Widget homeappbar(context) {
 }
 
 Widget search(TextEditingController search, bool setting, context) {
+  final link = Provider.of<Link>(context, listen: false);
   return Container(
     width: MediaQuery.of(context).size.width,
     padding: const EdgeInsets.all(5),
@@ -91,8 +100,9 @@ Widget search(TextEditingController search, bool setting, context) {
               onTap: () {
                 if (setting) {
                 } else {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => SearchScreen()));
+                  link.changewidget(const SearchScreen());
+                  // Navigator.of(context).push(
+                  //     MaterialPageRoute(builder: (context) => SearchScreen()));
                 }
               },
               autofocus: setting,
@@ -135,6 +145,78 @@ Widget search(TextEditingController search, bool setting, context) {
                 ])),
           ),
         )
+      ],
+    ),
+  );
+}
+
+Widget buysellappbar(context) {
+  String value = '-132.08';
+  return Container(
+    padding: const EdgeInsets.symmetric(vertical: 10),
+    width: MediaQuery.of(context).size.width,
+    height: 80,
+    child: Row(
+      children: [
+        back(const Home(), context),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: 90,
+                    height: 30,
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: InkWell(
+                      onTap: () {},
+                      child: const Center(
+                        child: Text(
+                          "KSE",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                    ),
+                  ),
+                  horizental(30),
+                  const Spacer(),
+                  (value.contains('-'))
+                      ? Image.asset('assets/images/icons/arrow_down.png')
+                      : Image.asset('assets/images/icons/arrow_up.png'),
+                  horizental(10),
+                  Text(
+                    value,
+                    style: whitetext,
+                  ),
+                  horizental(30)
+                ],
+              ),
+              Row(
+                children: [
+                  Text.rich(TextSpan(
+                      text: 'Vol : ',
+                      style: Theme.of(context).textTheme.bodyText1,
+                      children: [
+                        TextSpan(text: ' 137.68m', style: whitetext)
+                      ])),
+                  const Spacer(),
+                  Text.rich(TextSpan(
+                      text: 'STATUS : ',
+                      style: Theme.of(context).textTheme.bodyText2,
+                      children: [TextSpan(text: ' OPEN', style: whitetext)])),
+                  horizental(40)
+                ],
+              )
+            ],
+          ),
+        ),
       ],
     ),
   );

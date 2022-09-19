@@ -20,7 +20,7 @@ class _NewPassState extends State<NewPass> {
   bool confirmpass = true;
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.height);
+    // print(MediaQuery.of(context).size.height);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -36,7 +36,7 @@ class _NewPassState extends State<NewPass> {
           children: [
             Text("New Password.", style: Theme.of(context).textTheme.bodyText1),
             SizedBox(height: 64),
-            TextArea(
+            textArea(
                 context,
                 Icon(
                   Icons.lock,
@@ -46,7 +46,7 @@ class _NewPassState extends State<NewPass> {
                 "New Password",
                 newpass),
             vertical(20),
-            TextArea(
+            textArea(
                 context,
                 Icon(
                   Icons.lock,
@@ -70,7 +70,6 @@ class _NewPassState extends State<NewPass> {
               text: "Send",
               ontap: () {
                 // checking();
-                print('taped');
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => Login(),
                 ));
@@ -84,7 +83,7 @@ class _NewPassState extends State<NewPass> {
     );
   }
 
-  Widget TextArea(context, Icon icon, TextEditingController _controller,
+  Widget textArea(context, Icon icon, TextEditingController controller,
       String hintText, bool show) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,7 +99,7 @@ class _NewPassState extends State<NewPass> {
           ),
           child: TextFormField(
             style: TextStyle(color: Colors.black),
-            controller: _controller,
+            controller: controller,
             obscureText: (show) ? true : false,
             //
             decoration: InputDecoration(
@@ -117,7 +116,7 @@ class _NewPassState extends State<NewPass> {
                       confirmpass = !confirmpass;
                     });
                   }
-                  print(show);
+                  // print(show);
                 },
                 child: Icon(
                   (show)

@@ -6,7 +6,7 @@ import 'package:darson_stock_trainer/widgets/spacer.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPass extends StatefulWidget {
-  ForgotPass({Key? key}) : super(key: key);
+  const ForgotPass({Key? key}) : super(key: key);
 
   @override
   State<ForgotPass> createState() => _ForgotPassState();
@@ -49,7 +49,7 @@ class _ForgotPassState extends State<ForgotPass> {
             vertical(20),
             Image.asset('assets/images/darson_logo.png'),
             vertical(65),
-            TextArea(
+            textArea(
               context,
               "Email",
               Icon(
@@ -69,7 +69,7 @@ class _ForgotPassState extends State<ForgotPass> {
               text: "Send",
               ontap: () {
                 // checking();
-                print('taped');
+                // print('taped');
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => ForgotPassPin(),
                 ));
@@ -83,7 +83,7 @@ class _ForgotPassState extends State<ForgotPass> {
     );
   }
 
-  Widget TextArea(
+  Widget textArea(
     context,
     String title,
     Icon icon,

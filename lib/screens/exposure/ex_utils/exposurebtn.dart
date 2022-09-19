@@ -1,13 +1,16 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 
-class Button extends StatelessWidget {
+class ExposureBtn extends StatelessWidget {
   double width;
   VoidCallback ontap;
   String text;
-  Button(
-      {Key? key, required this.width, required this.ontap, required this.text})
+  Color bgcolor;
+  ExposureBtn(
+      {Key? key,
+      required this.text,
+      required this.width,
+      required this.ontap,
+      required this.bgcolor})
       : super(key: key);
 
   @override
@@ -18,11 +21,11 @@ class Button extends StatelessWidget {
         height: 40,
         width: MediaQuery.of(context).size.width * width,
         decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            borderRadius: BorderRadius.circular(10)),
+            color: bgcolor, borderRadius: BorderRadius.circular(10)),
         child: Center(
           child: Text(
             text,
+            overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.button,
           ),
         ),

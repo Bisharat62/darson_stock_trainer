@@ -1,19 +1,38 @@
+import 'package:darson_stock_trainer/provider/links_provider.dart';
+import 'package:darson_stock_trainer/screens/exposure/exposure.dart';
 import 'package:darson_stock_trainer/screens/home/home.dart';
+import 'package:darson_stock_trainer/screens/indices.dart';
+import 'package:darson_stock_trainer/screens/logs/logs.dart';
 import 'package:darson_stock_trainer/screens/utils_screens/navbar_data.dart';
+import 'package:darson_stock_trainer/screens/watches/watches.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key? key}) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
+  List navpages = [
+    const Home(),
+    const Watches(),
+    const Indices(),
+    const Exposure(),
+    const Logs(),
+    const Home(),
+    const Home(),
+    const Home(),
+    const Home()
+  ];
   int index = 0;
   @override
   Widget build(BuildContext context) {
+    final widget = Provider.of<Link>(context, listen: true);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: BottomAppBar(
         child: SingleChildScrollView(
           child: Container(
@@ -31,13 +50,14 @@ class _MainPageState extends State<MainPage> {
                       setState(() {
                         index = count;
                       });
+                      widget.changewidget(navpages[count]);
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 5,
                       height: 50,
                       decoration: BoxDecoration(
                           color: (index == count)
-                              ? Color(0xff1E1E1E)
+                              ? const Color(0xff1E1E1E)
                               : Colors.transparent,
                           border: Border(
                               right: BorderSide(
@@ -51,7 +71,7 @@ class _MainPageState extends State<MainPage> {
                           child: Text(
                         navbar[count],
                         style: const TextStyle(
-                            fontSize: 14,
+                            fontSize: 11,
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       )),
@@ -62,18 +82,14 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
+        padding: const EdgeInsets.only(left: 15, right: 15, top: 25),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('assets/images/main_bg.png'),
                 fit: BoxFit.fill)),
-        child: Column(
-          children: [
-            Home(),
-          ],
-        ),
+        child: widget.link,
       ),
     );
   }
