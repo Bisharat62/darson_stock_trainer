@@ -2,7 +2,11 @@ import 'package:darson_stock_trainer/provider/links_provider.dart';
 import 'package:darson_stock_trainer/screens/exposure/exposure.dart';
 import 'package:darson_stock_trainer/screens/home/home.dart';
 import 'package:darson_stock_trainer/screens/indices.dart';
+import 'package:darson_stock_trainer/screens/logout.dart';
 import 'package:darson_stock_trainer/screens/logs/logs.dart';
+import 'package:darson_stock_trainer/screens/mbo/mbo.dart';
+import 'package:darson_stock_trainer/screens/mbo/mbp.dart';
+import 'package:darson_stock_trainer/screens/messages.dart';
 import 'package:darson_stock_trainer/screens/utils_screens/navbar_data.dart';
 import 'package:darson_stock_trainer/screens/watches/watches.dart';
 import 'package:flutter/material.dart';
@@ -22,10 +26,10 @@ class _MainPageState extends State<MainPage> {
     const Indices(),
     const Exposure(),
     const Logs(),
-    const Home(),
-    const Home(),
-    const Home(),
-    const Home()
+    const MBO(),
+    const MBP(),
+    const Messages(),
+    const Logout()
   ];
   int index = 0;
   @override

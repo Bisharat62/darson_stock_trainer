@@ -64,15 +64,12 @@ class _BuySellState extends State<BuySell> {
                 card1('Trade', tradelist, trade, currenttrade),
                 card1('Order Type', opentypelist, opentype, currentopentype),
                 card2('Volume', volume),
-                (currentopentype == 1) ||
-                        (currenttrade == 0 && currentopentype == 1) ||
-                        (currenttrade == 1 && currentopentype == 1)
+                (currentopentype == 0)
                     ? vertical(0)
                     : card2('Price', price, pricefield: true),
-                (currenttrade == 0 && currentopentype == 1) ||
-                        (currentopentype == 4) ||
+                (currentopentype == 0) ||
                         (currentopentype == 1) ||
-                        (currentopentype == 3)
+                        (currentopentype == 4)
                     ? horizental(0)
                     : card2('Limit Price', limitprice, settingbtn: false),
                 card2('Account', account, settingbtn: false, readonly: true),
@@ -356,9 +353,9 @@ List tradelist = [
   'SHORT SELL',
 ];
 List opentypelist = [
-  'MIT',
   'MARKET',
-  'STOP LOSS',
-  'FOK',
   'LIMIT',
+  'STOP LOSS',
+  'MIT',
+  'FOK',
 ];
