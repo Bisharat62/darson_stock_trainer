@@ -1,4 +1,3 @@
-import 'package:darson_stock_trainer/screens/mbo/classmodel_market/mboclassmodel.dart';
 import 'package:darson_stock_trainer/screens/mbo/classmodel_market/mbpclassmodel.dart';
 import 'package:darson_stock_trainer/screens/mbo/components/mbp_cards.dart';
 import 'package:darson_stock_trainer/widgets/spacer.dart';
@@ -40,7 +39,7 @@ class MBP extends StatelessWidget {
           tablehead(mbpheading, context),
           ListView.builder(
               shrinkWrap: true,
-              padding: EdgeInsets.all(0),
+              padding: const EdgeInsets.all(0),
               controller: ScrollController(),
               itemCount: mbpclasslist.length,
               itemBuilder: (context, index) {
@@ -53,5 +52,5 @@ class MBP extends StatelessWidget {
   }
 }
 
-List<Color> dark = [Color(0xff87C2E9), Color(0xffEBD297)];
-List<Color> light = [Color(0xff9AC7E5), Color(0xffEED9A9)];
+List<Color> dark = [const Color(0xff87C2E9), const Color(0xffEBD297)];
+List<Color> light = [const Color(0xff9AC7E5), const Color(0xffEED9A9)];

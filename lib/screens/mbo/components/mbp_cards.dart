@@ -4,10 +4,10 @@ Widget tableheadmbp(List list, context) {
   return Container(
     width: MediaQuery.of(context).size.width,
     height: 45,
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(15), topRight: Radius.circular(15)),
-        gradient: const LinearGradient(
+        gradient: LinearGradient(
             colors: [Color(0xff7C7C7C), Color(0xff3C3C3C)],
             end: Alignment(0, -1),
             begin: Alignment(0, -0.3))),
@@ -16,12 +16,12 @@ Widget tableheadmbp(List list, context) {
         defaultVerticalAlignment: TableCellVerticalAlignment.middle,
         children: [
           TableRow(children: [
-            tablecellmbp(list[0], Color(0xffFBCB2E)),
-            tablecellmbp(list[1], Color(0xffFBCB2E)),
-            tablecellmbp(list[2], Color(0xffFBCB2E)),
-            tablecellmbp(list[2], Color(0xffFBCB2E)),
-            tablecellmbp(list[1], Color(0xffFBCB2E)),
-            tablecellmbp(list[0], Color(0xffFBCB2E), last: true),
+            tablecellmbp(list[0], const Color(0xffFBCB2E)),
+            tablecellmbp(list[1], const Color(0xffFBCB2E)),
+            tablecellmbp(list[2], const Color(0xffFBCB2E)),
+            tablecellmbp(list[2], const Color(0xffFBCB2E)),
+            tablecellmbp(list[1], const Color(0xffFBCB2E)),
+            tablecellmbp(list[0], const Color(0xffFBCB2E), last: true),
           ]),
         ],
       ),
@@ -29,8 +29,8 @@ Widget tableheadmbp(List list, context) {
   );
 }
 
-List<Color> dark = [Color(0xff87C2E9), Color(0xffEBD297)];
-List<Color> light = [Color(0xff9AC7E5), Color(0xffEED9A9)];
+List<Color> dark = [const Color(0xff87C2E9), const Color(0xffEBD297)];
+List<Color> light = [const Color(0xff9AC7E5), const Color(0xffEED9A9)];
 
 Widget tablebodymbp(dynamic list, List<Color> color, int index, context) {
   final Color first = color[0];
@@ -49,7 +49,7 @@ Widget tablebodymbp(dynamic list, List<Color> color, int index, context) {
       decoration: BoxDecoration(
           gradient: LinearGradient(
         colors: gradient,
-        stops: [0.0, 0.5, 0.5, 1.0],
+        stops: const [0.0, 0.5, 0.5, 1.0],
         end: Alignment.centerLeft,
         begin: Alignment.centerRight,
       )),
@@ -77,7 +77,7 @@ Widget tablebodymbp(dynamic list, List<Color> color, int index, context) {
 
 Widget tablecellmbp(String text, Color color, {bool? last}) {
   return Container(
-      height: (color == Color(0xffFBCB2E)) ? 45 : 30,
+      height: (color == const Color(0xffFBCB2E)) ? 45 : 30,
       decoration: BoxDecoration(
           border: Border(
               right: BorderSide(

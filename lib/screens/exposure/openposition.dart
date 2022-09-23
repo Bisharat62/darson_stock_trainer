@@ -3,10 +3,9 @@ import 'package:darson_stock_trainer/widgets/spacer.dart';
 import 'package:flutter/material.dart';
 
 class OpenPosition extends StatelessWidget {
-  OpenPosition({Key? key}) : super(key: key);
+  const OpenPosition({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

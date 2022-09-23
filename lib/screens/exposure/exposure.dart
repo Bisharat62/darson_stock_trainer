@@ -15,7 +15,7 @@ class Exposure extends StatefulWidget {
 }
 
 class _ExposureState extends State<Exposure> {
-  List links = [ExposureData(), OpenPosition(), Colleterals()];
+  List links = [const ExposureData(), const OpenPosition(), Colleterals()];
   int index = 0;
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,7 @@ class _ExposureState extends State<Exposure> {
                       : Colors.yellow.shade200),
             ],
           ),
-          ExposureCard(),
+          const ExposureCard(),
           links[index],
         ],
       ),

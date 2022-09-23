@@ -1,5 +1,3 @@
-import 'MBPClassModel.dart';
-
 class MBPClassModel {
   String? order1;
   String? volume1;

@@ -44,8 +44,8 @@ class Logout extends StatelessWidget {
             width: 0.8,
             ontap: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Login()));
-              link.changewidget(Home());
+                  .push(MaterialPageRoute(builder: (context) => const Login()));
+              link.changewidget(const Home());
             },
             text: 'LOGOUT')
       ],

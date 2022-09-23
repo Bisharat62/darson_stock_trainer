@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class OpenPositioncard extends StatelessWidget {
   OpenPositioncard({Key? key}) : super(key: key);
 

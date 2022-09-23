@@ -20,13 +20,13 @@ Widget searchcard(context) {
         ),
         Container(
           width: MediaQuery.of(context).size.width * 0.5,
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(10)),
           child: Center(
               child: TextFormField(
-            style: TextStyle(color: Colors.black),
-            decoration: InputDecoration(
+            style: const TextStyle(color: Colors.black),
+            decoration: const InputDecoration(
               border: InputBorder.none,
             ),
           )),
@@ -79,5 +79,5 @@ List mbpheading = [
   'Price',
 ];
 
-List<Color> dark = [Color(0xff87C2E9), Color(0xffEBD297)];
-List<Color> light = [Color(0xff9AC7E5), Color(0xffEED9A9)];
+List<Color> dark = [const Color(0xff87C2E9), const Color(0xffEBD297)];
+List<Color> light = [const Color(0xff9AC7E5), const Color(0xffEED9A9)];

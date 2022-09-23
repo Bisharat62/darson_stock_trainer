@@ -29,7 +29,7 @@ class ExposureCard extends StatelessWidget {
                       text: '0000',
                       style: Theme.of(context).textTheme.headline1)
                 ])),
-            Icon(
+            const Icon(
               Icons.arrow_drop_down_rounded,
               size: 35,
               color: Colors.white,

@@ -1,4 +1,3 @@
-import 'package:darson_stock_trainer/widgets/spacer.dart';
 import 'package:flutter/material.dart';
 
 class ExposureData extends StatelessWidget {
@@ -7,7 +6,7 @@ class ExposureData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Column(
         children: [
           rowviewdata('Ledger Balance', '918,776.00', context),

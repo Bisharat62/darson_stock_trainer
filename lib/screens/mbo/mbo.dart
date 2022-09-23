@@ -37,7 +37,7 @@ class MBO extends StatelessWidget {
         tablehead(mboheading, context),
         ListView.builder(
             shrinkWrap: true,
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
             controller: ScrollController(),
             itemCount: mboclasslist.length,
             itemBuilder: (context, index) {
